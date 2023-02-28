@@ -1,0 +1,11 @@
+<p>todo-list works!</p>
+<div class="form-group nt-5">
+<input type="text" class="form-control"[(ngModel)]="newItem"
+(keyup.enter)="addItem()">
+<button class="btn btn-primary"(click)="addItem()"[disabled]="newItem===''">Dodaj</button>
+<button class="btn btn-primary"(click)="sortItem()">Sortuj </button>
+<ul class="list-group nt-5">
+    <li class="list-group-item" *ngFor="let item of todoItem">
+        <app-todo-item [todoItem]="item" (itemToDelete)="removeItem($event)"></app-todo-item>
+    </li>
+</ul>
